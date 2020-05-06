@@ -1,13 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/test_recycler"
+        <data>
+                <import type="com.fasoo.digitalpage.recyclerdatabindingtest.viewmodel.MainViewModel" />
+                <import type="androidx.recyclerview.widget.RecyclerView.LayoutManager"/>
+                <import type="com.fasoo.digitalpage.recyclerdatabindingtest.MovieAdapter"/>
+                <variable
+                    name="viewModel"
+                    type="MainViewModel"/>
+
+                <variable
+                    name="TestRecyclerLayoutManager"
+                    type="LayoutManager" />
+                
+                <variable
+                    name="movieAdapter"
+                    type="MovieAdapter" />
+        </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
+                <Button
+                    android:id="@+id/btnItemAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="아이템 추가"
+                    android:onClick="@{() -> viewModel.addMovie()}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/test_recycler" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/test_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layoutManager="@{TestRecyclerLayoutManager}"
+                    app:itemBind="@{viewModel.movies}"
+                    app:setAdapter="@{movieAdapter}"
+                    app:layout_constraintTop_toBottomOf="@id/btnItemAdd"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
