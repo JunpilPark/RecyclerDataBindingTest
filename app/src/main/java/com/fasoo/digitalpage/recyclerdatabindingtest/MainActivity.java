@@ -1,16 +1,15 @@
 package com.fasoo.digitalpage.recyclerdatabindingtest;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-
 import com.fasoo.digitalpage.recyclerdatabindingtest.databinding.ActivityMainBinding;
 import com.fasoo.digitalpage.recyclerdatabindingtest.viewmodel.MainViewModel;
+import com.fasoo.digitalpage.recyclerdatabindingtest.viewmodel.ViewModelFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         activityMainBinding.setLifecycleOwner(this);
-        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        mainViewModel = ViewModelFactory.getInstance().create(MainViewModel.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         activityMainBinding.setTestRecyclerLayoutManager(linearLayoutManager);
