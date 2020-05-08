@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.fasoo.digitalpage.recyclerdatabindingtest.model.Movie;
+import com.fasoo.digitalpage.recyclerdatabindingtest.repository.data.Movie;
 
 import java.util.ArrayList;
 import java.util.List;

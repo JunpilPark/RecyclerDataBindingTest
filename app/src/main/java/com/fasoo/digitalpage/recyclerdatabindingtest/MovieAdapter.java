@@ -2,17 +2,15 @@ package com.fasoo.digitalpage.recyclerdatabindingtest;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.BindingAdapter;
-import androidx.databinding.ObservableArrayList;
 import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fasoo.digitalpage.recyclerdatabindingtest.databinding.ItemMovieBinding;
-import com.fasoo.digitalpage.recyclerdatabindingtest.model.Movie;
+import com.fasoo.digitalpage.recyclerdatabindingtest.repository.data.Movie;
 
 import java.util.List;
 
