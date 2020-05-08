@@ -1,10 +1,10 @@
-package com.fasoo.digitalpage.recyclerdatabindingtest.model;
+package com.fasoo.digitalpage.recyclerdatabindingtest.repository.data;
 
 public class Movie {
-    private String title;
-    private String characters;
-    private String summaryStory;
-    private String imageUrl;
+    private final String title;
+    private final String characters;
+    private final String summaryStory;
+    private final String imageUrl;
 
     public Movie(String title, String characters, String summaryStory, String imageUrl) {
         this.title = title;
